@@ -237,6 +237,7 @@ a:hover {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       padding: 2rem;
+    
       text-align: center;
     }
     .reviews-grid {
@@ -257,29 +258,45 @@ a:hover {
       font-size: 1.25rem;
       margin-bottom: 0.625rem;
     }
-    .cta {
-      text-align: center;
-      margin: 1.875rem 0;
-      padding: 1.875rem;
-      background:   linear-gradient(135deg, #A8E6CF 0%, #56D8A3 100%);
-      border-radius: 0rem;
-    }
-    .cta a {
-      display: inline-block;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      text-decoration: none;
-      padding: 0.9375rem 1.875rem;
-      border-radius: 1.5625rem;
-      font-size: 1.25rem;
-      font-weight: bold;
-      box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .cta a:hover {
-      transform: translateY(-0.125rem);
-      box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.3);
-    }
+.cta {
+  text-align: center;
+  margin: 0;           /* remove any auto vertical margins */
+  padding: 0;          /* remove white top/bottom padding */
+    margin-top: 2 rem;
+   padding: 1.875rem;
+  background: linear-gradient(135deg, #A8E6CF 0%, #56D8A3 100%);
+}
+
+.cta h2 {
+  margin: 1.5rem 0 1rem;  /* space above/below title */
+  color: #2c3e50;
+   margin-top: 0;
+}
+
+.cta-button {
+  display: inline-block;
+  margin: 0 auto 0.75rem; /* center + gap below */
+  padding: 0.9375rem 1.875rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 1.5625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cta-button:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.3);
+}
+
+.cta-note {
+  margin: 0;              /* no extra top-bottom gap */
+  font-size: 0.875rem;
+  color: #333;
+}
+
     
 
     .footer {
@@ -469,16 +486,21 @@ a:hover {
       </div>
     </div>
 
-    <div class="cta">
-      <h2 style="margin-bottom: 1.25rem; color: #2c3e50;">Ready to Book? 🐾</h2>
-      <a href="https://www.rover.com/sit/nicolc86838" target="_blank">
-        Book Now & Save $20! 🎉
-      </a>
-      
-              <i class="margin-note">Existing Rover users: Use code NICOLC86838 at checkout</i>
+<div class="cta">
+  <h2>Ready to Book? 🐾</h2>
+  <a
+    href="https://www.rover.com/sit/nicolc86838"
+    class="cta-button"
+    target="_blank"
+    rel="noopener"
+  >
+    Book Now & Save $20! 🎉
+  </a>
+  <p class="cta-note">
+    <i>Existing Rover users: Use code <strong>NICOLC86838</strong> at checkout<i>
+  </p>
+</div>
 
-
-    </div>
 
     <div class="footer">
       <p><strong>Nicole C.</strong> • Lawrenceville, Pittsburgh, PA</p>
