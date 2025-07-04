@@ -297,21 +297,23 @@ a:hover {
     .cat-photo:hover {
       transform: scale(1.05) rotate(2deg);
     }
-    .promo-banner {
-      background: linear-gradient(45deg, #ff6b6b, #ffa500);
-      color: white;
-      padding: 15px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      animation: shimmer 2s linear infinite;
-    }
-    @keyframes shimmer {
+ .promo-banner {
+  background: linear-gradient(45deg, #ff6b6b, #ffa500) no-repeat;
+  background-size: 200% 100%;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
   0%   { background-position: -100% 0; }
   100% { background-position:  100% 0; }
 }
-background-size: 200% 100%;
-    }
+
+    
   </style>
 </head>
 <body>
