@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!--comment-->
+<html lang="en">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Nicole's Cat Boarding</title>
+  <style>
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  background:
+    linear-gradient(
+      to right,
+      rgba(100, 200, 200, 1),
+      rgba(100, 200, 200, 1)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+  );
+  background-size: 100% 0.125rem, 0 0.125rem;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+a:hover {
+  background-size: 0 0.1875rem, 100% 0.1875rem;
+}
+
+.promo-banner__link {
+  display: inline-block;  
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15); /* subtle translucent background */
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* visible border on mobile */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);     /* subtle shadow for depth */
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.promo-banner__link:active {
+  transform: scale(0.97); /* small click feedback */
+}
+
+
+/* hover state */
+.promo-banner__link:hover {
+  background: rgba(255,255,255,0.2);  /* subtle highlight */
+  transform: translateY(-0.125rem);        /* small “lift” */
+  text-decoration: underline;         /* underline the text */
+  text-decoration-thickness: 0.125rem;
+  text-decoration-color: white;
+}
+.promo-note {
+  font-size: 0.8em;  /* 80% of the parent font size */
+  color: #eee;       /* optional: lighten it so it reads as a note */
+}
+
+.margin-note {
+  font-size: 0.8em;  /* 80% of the parent font size */
+  color: black;       /* optional: lighten it so it reads as a note */
+}
+
+
+
+
+
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .flyer {
+        width: 100%;
+     max-width: 42rem; 
+      margin: 0 auto;
+      padding: 0;
+      background: white;
+      border-radius: 1.25rem;
+      box-shadow: 0 1.25rem 2.5rem rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    .header {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 50%, #ff1493 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: "🐱";
+      position: absolute;
+      font-size: 3.75rem;
+      opacity: 0.1;
+      top: -0.625rem;
+      left: 1.25rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    .header::after {
+      content: "🐾";
+      position: absolute;
+      font-size: 2.5rem;
+      opacity: 0.1;
+      bottom: 0.625rem;
+      right: 2rem;
+      animation: float 3s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-0.625rem); }
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.625rem;
+      font-weight: bold;
+      text-shadow: 0.125rem 0.125rem 0.25rem rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .header p {
+      margin: 0.625rem 0 0 0;
+      font-size: 1.125rem;
+      opacity: 0.9;
+    }
+    .hero-section {
+      padding: 2rem;
+      background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      text-align: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      align-items: center;
+      margin-top: 1.25rem;
+    }
+    .hero-image {
+      width: 100%;
+      height: auto;
+       aspect-ratio: 3/2; 
+      object-fit: cover;
+      border-radius: 0.9375rem;
+      box-shadow: 0 0.625rem 1.25rem rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .hero-image:hover {
+      transform: scale(1.05);
+    }
+    .hero-text {
+      padding: 1.25rem;
+    }
+    .hero-text h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.9375rem;
+      text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0,0,0,0.3);
+    }
+    .content {
+      padding: 2rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5625rem;
+      border-radius: 0.9375rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .section:nth-child(odd) {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+    .section:nth-child(even) {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    .section h2 {
+      margin-bottom: 0.9375rem;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+.section ul li {
+  margin-bottom: 0.9375rem;
+  padding: 0.9375rem 1.25rem;
+  background: rgba(255,255,255,0.8);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.1);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 3.125rem;
+  transition: all 0.3s ease;
+  border-left: 0.25rem solid transparent;
+}
+
+.section ul li:hover {
+  transform: translateX(0.3125rem);
+  box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.15);
+  border-left-color: #ff6b6b;
+}
+    .section ul li::before {
+      content: "✨";
+      position: absolute;
+      left: 0.625rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .rates li::before { content: "💰"; }
+    .why-choose li::before { content: "⭐"; }
+    .day-care li::before { content: "🏠"; }
+    .reviews-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+    
+      text-align: center;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(23.125rem, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.1);
+      padding: 1.25rem;
+      border-radius: 0.625rem;
+      backdrop-filter: blur(0.625rem);
+      border: 0.0625rem solid rgba(255,255,255,0.2);
+    }
+    .review-stars {
+      color: #ffd700;
+      font-size: 1.25rem;
+      margin-bottom: 0.625rem;
+    }
+.cta {
+  text-align: center;
+  margin: 0;           /* remove any auto vertical margins */
+  padding: 0;          /* remove white top/bottom padding */
+    margin-top: 2 rem;
+   padding: 1.875rem;
+  background: linear-gradient(135deg, #A8E6CF 0%, #56D8A3 100%);
+}
+
+.cta h2 {
+  margin: 1.5rem 0 1rem;  /* space above/below title */
+  color: #2c3e50;
+   margin-top: 0;
+}
+
+.cta-button {
+  display: inline-block;
+  margin: 0 auto 0.75rem; /* center + gap below */
+  padding: 0.9375rem 1.875rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 1.5625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cta-button:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.3);
+}
+
+.cta-note {
+  margin: 0;              /* no extra top-bottom gap */
+  font-size: 0.875rem;
+  color: #333;
+}
+
+    
+
+    .footer {
+      text-align: center;
+      padding: 1.25rem;
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      font-size: 1rem;
+    }
+    .cat-photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(8.375rem, 1fr));
+      gap: 2rem;
+      margin: 1.25rem 0;
+    }
+    .cat-photo {
+      width: 100%;
+      height: 100%;
+        aspect-ratio: 1/1;  /* forces a square */
+
+      object-fit: cover;
+      border-radius: 0.625rem;
+      box-shadow: 0 0.3125rem 0.625rem rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .cat-photo:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+.promo-banner {
+  /* solid orange background */
+  background-color: #ffa500;
+
+  /* keep your existing text styling */
+  color: white;
+  padding: 0.9375rem;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+@media (max-width: 37.5rem) {
+  .hero-grid {
+    grid-template-columns: 1fr;  /* stack text over image */
+  }
+  .cat-photos {
+    grid-template-columns: 1fr 1fr; /* two across instead of many */
+  }
+  .reviews-grid {
+    grid-template-columns: 1fr;    /* one review per row */
+  }
+  .header h1 {
+    font-size: 2rem;               /* scale down heading */
+  }
+  .content, .hero-section, .header, .promo-banner {
+    padding: 1rem;                 /* reduce all big paddings */
+  }
+  .promo-banner {
+    font-size: 1rem;
+  }
+}
+
+  @media (max-width: 30rem) {  /* 30rem = 480px */
+    .cat-photos {
+      grid-template-columns: 1fr;  /* stack one per row */
+    }
+  }
+
+    
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="header">
+      <h1>Nicole's Cat Boarding 🐱</h1>
+      <p><em>Lawrenceville, Pittsburgh, PA • Experienced cat caregiver </em></p>
+    </div>
+
+ <div class="promo-banner">
+  <a
+    href="https://www.rover.com/sit/nicolc86838"
+    class="promo-banner__link"
+    target="_blank"
+    rel="noopener"
+  >
+    🎉 Get $20 off your first Rover booking! 🎉
+  </a>
+<br>
+<i class="promo-note">Existing Rover users: Use code NICOLC86838 at checkout</i>
+</div>
+
+
+    <div class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h2>5 Years of Loving Cat Care</h2>
+          <p>I have 4 cats of my own, so I know exactly what your feline friend needs to feel safe, loved, and entertained while you're away!</p>
+        </div>
+<img src="images/img_3011.jpg"
+     alt="Nicole"
+     class="hero-image">      </div>
+    </div>
+
+    <div class="content">
+      <div class="section rates">
+        <h2>💰 Services & Rates</h2>
+        <ul>
+          <li><strong>Boarding (in my home):</strong> $15/night</li>
+          <li><strong>Holiday rate:</strong> $18/night</li>
+          <li><strong>Only one cat at a time</strong> – full attention guaranteed</li>
+          <li><strong>Cancellation policy:</strong> 3 days' notice</li>
+        </ul>
+      </div>
+
+      <div class="section why-choose">
+        <h2>⭐ Why Choose Me?</h2>
+        <ul>
+          <li><strong>Experienced cat caregiver:</strong> 5 years of dedicated cat care since getting my first rescue </li>
+          <li><strong>Lifelong cat lover:</strong> : Grew up with 4 cats, experienced with all personalities and temperaments</li>
+            <li><strong>Community volunteer:</strong> Weekly volunteer at Ricki's Rescue disabled cat sanctuary</li>
+          <li><strong>Medical expertise:</strong> Skilled with medication administration (liquid, pill, subcutaneous fluids, insulin injections)</li>
+          <li><strong>Full-time availability:</strong> Working from home means playing and cuddling all day!</li>
+          <li><strong>Safe environment:</strong> Cat-proofed, clean, non-smoking home with complete separation from my cats</li>
+        </ul>
+      </div>
+
+      <div class="section day-care">
+        <h2>🏠 A Day in My Home</h2>
+        <ul>
+          <li><strong>Dedicated cat suite:</strong> Private room with toys, scratching posts, cozy hideaways, and my home office</li>
+          <li><strong>24/7 monitoring:</strong> Live camera feed feed for supervision even when I step out of my home</li>
+          <li><strong>Activities and amenities:</strong> Variety of treats, catnip, interactive toys, and a perfect window view</li>
+          <li><strong>Daily photos:</strong> Photo updates showing your cat's daily adventures and activities</li>
+            <li><strong>Personalized care:</strong> Customized routine based on your cat's preferences and needs</li>
+
+        </ul>
+      </div>
+
+      <div class="cat-photos">
+<img src="images/img_6277-preview.jpg"
+     alt="Vesta"
+     class="cat-photo">
+
+<img src="images/img_4984-preview.jpg"
+     alt="Stanley"
+     class="cat-photo">
+<img src="images/img_7647.jpeg"
+     alt="Thunder"
+     class="cat-photo">
+<img src="images/img_6349.jpg"
+     alt="Coconut"
+     class="cat-photo">
+ 
+    <img src="images/img_3918.jpg"
+     alt="Thunder"
+     class="cat-photo">
+  <img src="images/img_6628.jpg"
+     alt="Stanley"
+     class="cat-photo">
+
+      </div>
+    </div>
+
+
+    <div class="reviews-section">
+      <h2>⭐ What Cat Parents Say ⭐ </h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Nicole has 4 cats so she is well qualified to care for another cat. Our Gismo enjoyed his stay and even let her rub his tummy!"</p>
+          <strong>- Robert & Mary Ann S.</strong>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Nicole provided the best care and service to my dearest Esteban. My cat enjoyed the compassionate attention and nurturing environment."</p>
+          <strong>- Brent S.</strong>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Nicole was amazing! She took such great care of my cat – attentive, reliable, and clearly a true animal lover."</p>
+          <strong>- Tatiana R.</strong>
+        </div>
+         <div class="review-card">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Nicole was a lifesaver!! She was able to accommodate big changes when it came to the length of my cats stay and sent updates everyday."</p>
+          <strong>- Sydney B.</strong>
+        </div>
+      </div>
+    </div>
+
+<div class="cta">
+  <h2>Ready to Book? 🐾</h2>
+  <a
+    href="https://www.rover.com/sit/nicolc86838"
+    class="cta-button"
+    target="_blank"
+    rel="noopener"
+  >
+    Book Now & Save $20! 🎉
+  </a>
+  <p class="cta-note">
+    <i>Existing Rover users: Use code <strong>NICOLC86838</strong> at checkout<i>
+  </p>
+</div>
+
+
+    <div class="footer">
+      <p><strong>Nicole C.</strong> • Lawrenceville, Pittsburgh, PA</p>
+      <p>100% response rate • Usually replies in minutes</p>
+      <p>📧 Questions? <a href="https://www.rover.com/sit/nicolc86838">Message me through Rover!</a></p>
+    </div>
+  </div>
+</body>
+</html>
