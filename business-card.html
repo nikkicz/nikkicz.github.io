@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nicole's Cat Boarding – Business Card</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    /* Base page layout for printing a single centered card */
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Standard business card size: 3.5in x 2in */
+    .card {
+      width: 3.5in;
+      height: 2in;
+      border: 1px solid #cccccc;
+      border-radius: 0.15in;
+      padding: 0.15in 0.2in;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #222222;
+    }
+
+    .header {
+      margin-bottom: 0.05in;
+    }
+
+    .name {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #2c3e50;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      font-size: 8.5pt;
+      margin-top: 0.03in;
+    }
+
+    .location {
+      font-size: 8pt;
+      margin-top: 0.02in;
+      color: #555555;
+    }
+
+    .middle {
+      font-size: 8pt;
+      line-height: 1.25;
+      margin-top: 0.04in;
+      margin-bottom: 0.04in;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .rates {
+      margin-top: 0.02in;
+    }
+
+    .rates-line {
+      white-space: nowrap;
+    }
+
+    .note {
+      font-size: 7.5pt;
+      color: #555555;
+      margin-top: 0.02in;
+    }
+
+    .footer {
+      font-size: 7.5pt;
+      border-top: 1px solid #dddddd;
+      padding-top: 0.03in;
+      margin-top: 0.03in;
+      display: flex;
+      flex-direction: column;
+      gap: 0.02in;
+    }
+
+    .url {
+      font-size: 7.5pt;
+      word-break: break-all;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .page {
+        min-height: 0;
+      }
+      /* Let the browser handle margins; card is fixed in inches */
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <!-- Top: name + basic info -->
+      <div class="header">
+        <div class="name">Nicole's Cat Boarding</div>
+        <div class="tagline">In-home cat boarding with a dedicated cat room.</div>
+        <div class="location">Lawrenceville • Pittsburgh, PA</div>
+      </div>
+
+      <!-- Middle: services and rates -->
+      <div class="middle">
+        <div class="label">Services & Rates</div>
+        <div class="rates">
+          <div class="rates-line">Boarding in home: $15 / night</div>
+          <div class="rates-line">Holiday rate: $18 / night</div>
+          <div class="rates-line">One cat at a time</div>
+        </div>
+
+        <div class="label" style="margin-top: 0.04in;">Experience</div>
+        <div>5+ years of cat care, 3 resident cats.</div>
+        <div>Comfortable with medications (pills, liquid, insulin, subcutaneous fluids).</div>
+      </div>
+
+      <!-- Bottom: Rover link + discount code -->
+      <div class="footer">
+        <div>
+          <span class="label">Booking on Rover:</span>
+          <span class="url">www.rover.com/sit/nicolc86838</span>
+        </div>
+        <div>
+          <span class="label">First-time Rover users:</span>
+          <span>$20 off with code <strong>NICOLC86838</strong></span>
+        </div>
+        <div class="note">
+          Existing Rover users: enter code <strong>NICOLC86838</strong> at checkout.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
