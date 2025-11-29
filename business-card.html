@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>Business Card – Front</title>
+
+  <!-- Cool font for heading -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     * {
       box-sizing: border-box;
@@ -35,8 +42,17 @@
       box-shadow: 0 0.12in 0.25in rgba(0, 0, 0, 0.3);
       position: relative;
       overflow: hidden;
-      /* extra bottom padding so text stays clear of the wave */
+      /* extra bottom padding so text stays above the wave */
       padding-bottom: 0.35in;
+    }
+
+    /* Pusheen in top-right corner */
+    .pusheen {
+      position: absolute;
+      top: 0.08in;
+      right: 0.10in;
+      width: 0.55in;   /* adjust if you want bigger/smaller */
+      height: auto;
     }
 
     /* HEADER (full-width, centered) */
@@ -46,12 +62,14 @@
       padding-bottom: 0.06in;
       margin-bottom: 0.04in;
       text-align: center;
+      padding-right: 0.6in;  /* leave room for Pusheen so text doesn't collide */
     }
 
     .business-name {
       font-size: 10pt;
       font-weight: 700;
       line-height: 1.2;
+      font-family: "Poppins", Arial, sans-serif; /* cooler font just for name */
     }
 
     .header-line2 {
@@ -68,7 +86,7 @@
       opacity: 0.9;
     }
 
-    /* “important” links (phone, Rover, site) */
+    /* Emphasis links (phone, Rover, site) */
     .emphasis-link {
       color: #b8860b;              /* gold-ish */
       text-decoration: underline;
@@ -91,6 +109,7 @@
       margin-bottom: 0.02in;
     }
 
+    /* Clean bullet layout */
     .bullet-list {
       list-style: none;
       padding: 0;
@@ -100,18 +119,18 @@
     .bullet-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.03in;
-      font-size: 6pt;
-      line-height: 1.25;
-      margin-bottom: 0.02in;
+      gap: 0.04in;
+      font-size: 5.5pt;            /* smaller, cleaner */
+      line-height: 1.2;
+      margin-bottom: 0.03in;
     }
 
     .bullet-dot {
-      width: 0.05in;
-      height: 0.05in;
+      width: 0.04in;               /* smaller dot */
+      height: 0.04in;
       border-radius: 999px;
-      background: #764ba2;         /* accent from gradient */
-      margin-top: 0.025in;
+      background: #764ba2;         /* accent color */
+      margin-top: 0.035in;         /* centers the dot vertically with text */
       flex-shrink: 0;
     }
 
@@ -156,6 +175,10 @@
 </head>
 <body>
   <div class="card">
+    <!-- Pusheen image in the corner -->
+    <!-- Update src path to match where you save the transparent image -->
+    <img src="images/pusheen.png" alt="Pusheen" class="pusheen" />
+
     <!-- HEADER -->
     <header class="header">
       <div class="business-name">Nicole's Cat Services</div>
@@ -227,7 +250,7 @@
 
           <li class="bullet-item">
             <span class="bullet-dot"></span>
-            <span>3 resident cats kept separate</span>
+            <span>3 resident cats kept separate from boarded cats</span>
           </li>
 
           <li class="bullet-item">
