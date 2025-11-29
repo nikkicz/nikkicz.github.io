@@ -2,288 +2,312 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Business Card – Front</title>
+  <title>Nicole's Cat Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Cool font for heading -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Cool heading font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ===== Page layout ===== */
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      min-height: 100vh;
       margin: 0;
-      padding: 1rem;
-      font-family: Arial, sans-serif;
-      background: #eeeeee;
+      padding: 0;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #f2f2f2; /* light gray so the white card pops */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #111;
     }
 
-    /* 3.5 in × 2 in business card */
-    .card {
-      width: 3.5in;
-      height: 2in;
-      border-radius: 0.15in;
-      padding: 0.18in 0.22in;
-      background: #ffffff;          /* white card */
-      color: #000000;               /* black text */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 0.12in 0.25in rgba(0, 0, 0, 0.3);
-      position: relative;
-      overflow: hidden;
-      /* extra bottom padding so text stays above the wave */
-      padding-bottom: 0.35in;
-    }
-
-    /* Pusheen in top-right corner */
-    .pusheen {
-      position: absolute;
-      top: 0.08in;
-      right: 0.10in;
-      width: 0.55in;   /* adjust if you want bigger/smaller */
-      height: auto;
-    }
-
-    /* HEADER (full-width, centered) */
-    .header {
+    .card-wrapper {
+      padding: 1.5rem;
       width: 100%;
-      border-bottom: 1px solid #cccccc;
-      padding-bottom: 0.06in;
-      margin-bottom: 0.04in;
-      text-align: center;
-      padding-right: 0.6in;  /* leave room for Pusheen so text doesn't collide */
+      max-width: 780px;
     }
 
-    .business-name {
-      font-size: 10pt;
-      font-weight: 700;
-      line-height: 1.2;
-      font-family: "Poppins", Arial, sans-serif; /* cooler font just for name */
+    .card {
+      position: relative;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.18),
+        0 4px 12px rgba(0, 0, 0, 0.10);
+      padding: 1.75rem 2rem 0.75rem; /* bottom is small; wave lives in its own container */
+      overflow: hidden; /* ensures wave is flush with the bottom (no white line) */
     }
 
-    .header-line2 {
-      font-size: 7pt;
-      margin-top: 0.03in;
+    @media (max-width: 600px) {
+      .card {
+        padding: 1.4rem 1.3rem 0.6rem;
+        border-radius: 18px;
+      }
     }
 
-    .header-line3 {
-      font-size: 6.6pt;
-      margin-top: 0.03in;
-    }
-
-    .header-separator {
-      opacity: 0.9;
-    }
-
-    /* Emphasis links (phone, Rover, site) */
-    .emphasis-link {
-      color: #b8860b;              /* gold-ish */
-      text-decoration: underline;
-      font-weight: 700;
-    }
-
-    /* BODY: two columns */
-    .body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 0.08in;
-      row-gap: 0.02in;
-      flex: 1;
-      margin-top: 0.03in;
-    }
-
-    .section-title {
-      font-size: 6.8pt;
-      font-weight: 700;
-      margin-bottom: 0.02in;
-    }
-
-    /* Clean bullet layout */
-    .bullet-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .bullet-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.04in;
-      font-size: 5.5pt;            /* smaller, cleaner */
-      line-height: 1.2;
-      margin-bottom: 0.03in;
-    }
-
-    .bullet-dot {
-      width: 0.04in;               /* smaller dot */
-      height: 0.04in;
-      border-radius: 999px;
-      background: #764ba2;         /* accent color */
-      margin-top: 0.035in;         /* centers the dot vertically with text */
-      flex-shrink: 0;
-    }
-
-    .code-highlight {
-      color: #b8860b;
-      font-weight: 700;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* GRADIENT WAVE AT BOTTOM */
-    .wave-wrapper {
+    /* ===== Corner emojis ===== */
+    .corner-emoji {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 0.4in;               /* height of the wave graphic */
+      font-size: 1.7rem;
+      opacity: 0.9;
       pointer-events: none;
     }
 
-    .wave-svg {
-      width: 100%;
-      height: 100%;
-      display: block;
+    .corner-emoji.left {
+      top: 0.65rem;
+      left: 0.9rem;
     }
 
-    @media print {
-      body {
-        background: #ffffff;
-        padding: 0;
-        margin: 0;
+    .corner-emoji.right {
+      top: 0.65rem;
+      right: 0.9rem;
+    }
+
+    /* ===== Header ===== */
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem; /* small gap so the text comes very close to the image */
+      margin-bottom: 0.35rem;
+    }
+
+    .header-text {
+      flex: 1;             /* <<< this lets the text expand all the way up to Pusheen */
+      min-width: 0;
+    }
+
+    .card-title {
+      margin: 0;
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .card-subtitle {
+      margin: 0.35rem 0 0;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .pusheen {
+      flex-shrink: 0;  /* prevents Pusheen from shrinking instead of text */
+      width: 70px;
+      height: auto;
+    }
+
+    @media (max-width: 480px) {
+      .card-header {
+        align-items: flex-start;
       }
-      .card {
-        box-shadow: none;
-        margin: 0;
+      .pusheen {
+        width: 58px;
       }
+      .card-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* ===== Contact row ===== */
+    .contact-row {
+      margin-top: 0.65rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid #e1e1e1;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .contact-row a {
+      color: #c97a00;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-row a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-row span.dot {
+      color: #777;
+      margin: 0 0.3rem;
+    }
+
+    /* ===== Divider ===== */
+    .divider {
+      margin: 0.85rem 0 0.9rem;
+      border: none;
+      border-top: 1px solid #e1e1e1;
+    }
+
+    /* ===== Columns ===== */
+    .columns {
+      display: grid;
+      grid-template-columns: 1.05fr 1.1fr;
+      gap: 1.4rem;
+      font-size: 0.83rem;
+      padding-bottom: 0.3rem;
+    }
+
+    @media (max-width: 600px) {
+      .columns {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .column h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.96rem;
+    }
+
+    ul.bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 0.95rem;
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+    }
+
+    /* custom small purple bullets */
+    ul.bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 0.35rem;
+      height: 0.35rem;
+      border-radius: 999px;
+      background: #7c3aed;
+      transform: translateY(-50%);
+    }
+
+    a.inline-link {
+      color: #c97a00;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a.inline-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Wave footer ===== */
+    .wave-footer {
+      margin-top: 1.1rem;
+      /* This keeps the rounded corners and ensures the SVG fully covers the bottom.
+         Combined with .card {overflow:hidden}, this removes the thin white line. */
+      border-radius: 0 0 22px 22px;
+      overflow: hidden;
+      line-height: 0; /* removes tiny inline-gap that can show as a white line */
+    }
+
+    .wave-footer svg {
+      display: block;
+      width: 100%;
+      height: 76px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <!-- Pusheen image in the corner -->
-    <!-- Update src path to match where you save the transparent image -->
-      <img src="images/IMG_6369.png" alt="Pusheen" class="pusheen" />
+  <div class="card-wrapper">
+    <div class="card">
+      <!-- Corner emojis -->
+      <div class="corner-emoji left">🐈</div>
+      <div class="corner-emoji right">🐈‍⬛</div>
 
-    <!-- HEADER -->
-    <header class="header">
-      <div class="business-name">Nicole's Cat Services</div>
+      <!-- Header -->
+      <header class="card-header">
+        <div class="header-text">
+          <h1 class="card-title">Nicole's Cat Services</h1>
+          <p class="card-subtitle">
+            In-home boarding and drop-ins • Lawrenceville, Pittsburgh, PA
+          </p>
+        </div>
 
-      <div class="header-line2">
-        In-home boarding and drop-ins
-        <span class="header-separator"> • </span>
-        Lawrenceville, Pittsburgh, PA
-      </div>
+        <!-- Replace src with your transparent Pusheen file -->
+        <img
+          src="pusheen.png"
+          alt="Cute Pusheen cat illustration"
+          class="pusheen"
+        />
+      </header>
 
-      <div class="header-line3">
-        <span class="emphasis-link">724-591-6883</span>
-        <span class="header-separator"> • </span>
-        <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
+      <!-- Contact row -->
+      <div class="contact-row">
+        <a href="tel:17245916883">724-591-6883</a>
+        <span class="dot">•</span>
+        <a href="https://rover.com/sit/nicolc86838" target="_blank" rel="noopener">
           rover.com/sit/nicolc86838
         </a>
-        <span class="header-separator"> • </span>
-        <a href="https://nikkicz.github.io" class="emphasis-link">
+        <span class="dot">•</span>
+        <a href="https://nikkicz.github.io" target="_blank" rel="noopener">
           nikkicz.github.io
         </a>
       </div>
-    </header>
 
-    <!-- BODY -->
-    <div class="body">
-      <!-- Services -->
-      <div>
-        <div class="section-title">Services</div>
-        <ul class="bullet-list">
+      <hr class="divider" />
 
-          <li class="bullet-item">
-            <span class="bullet-dot"></span>
-            <span>
-              Boarding in my home through Rover:<br />
-              <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
+      <!-- Main content -->
+      <div class="columns">
+        <section class="column">
+          <h3>Services</h3>
+          <ul class="bullet-list">
+            <li>
+              Boarding in my home through Rover:
+              <a class="inline-link" href="https://rover.com/sit/nicolc86838" target="_blank" rel="noopener">
                 rover.com/sit/nicolc86838
               </a>
-            </span>
-          </li>
+            </li>
+            <li>
+              First-time Rover users: $20 off with code <strong>NICOLC86838</strong>
+            </li>
+            <li>
+              Drop-ins through direct contact:
+              <a class="inline-link" href="tel:17245916883">724-591-6883</a>
+            </li>
+          </ul>
+        </section>
 
-          <li class="bullet-item">
-            <span class="bullet-dot"></span>
-            <span>
-              First-time Rover users: $20 off with code
-              <span class="code-highlight">NICOLC86838</span>
-            </span>
-          </li>
-
-          <li class="bullet-item">
-            <span class="bullet-dot"></span>
-            <span>
-              Drop-ins through direct contact:<br />
-              <span class="emphasis-link">724-591-6883</span>
-            </span>
-          </li>
-
-        </ul>
+        <section class="column">
+          <h3>Experience</h3>
+          <ul class="bullet-list">
+            <li>5+ years of cat care</li>
+            <li>3 resident cats kept separate from boarded cats</li>
+            <li>
+              Comfortable with medications (pills, liquid, insulin injections,
+              sub-Q injections, ointment)
+            </li>
+            <li>Insured through Pet Sitters Associates</li>
+          </ul>
+        </section>
       </div>
 
-      <!-- Experience -->
-      <div>
-        <div class="section-title">Experience</div>
-        <ul class="bullet-list">
-
-          <li class="bullet-item">
-            <span class="bullet-dot"></span>
-            <span>5+ years of cat care</span>
-          </li>
-
-          <li class="bullet-item">
-            <span class="bullet-dot"></span>
-            <span>3 resident cats kept separate from boarded cats</span>
-          </li>
-
-          <li class="bullet-item">
-            <span class="bullet-dot"></span>
-            <span>
-              Comfortable with medications (pills, liquid,
-              insulin injections, sub-Q injections, ointment)
-            </span>
-          </li>
-
-          <li class="bullet-item">
-            <span class="bullet-dot"></span>
-            <span>Insured by Pet Sitters Associates</span>
-          </li>
-
-        </ul>
+      <!-- Gradient wave footer -->
+      <div class="wave-footer">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#4f46e5" />
+              <stop offset="50%" stop-color="#7c3aed" />
+              <stop offset="100%" stop-color="#ec4899" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#waveGradient)"
+            d="M0,256L48,245.3C96,235,192,213,288,186.7C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+        </svg>
       </div>
-    </div>
-
-    <!-- GRADIENT WAVE FOOTER -->
-    <div class="wave-wrapper">
-      <svg class="wave-svg" viewBox="0 0 500 80" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="#667eea" />
-            <stop offset="45%"  stop-color="#764ba2" />
-            <stop offset="100%" stop-color="#ff6b6b" />
-          </linearGradient>
-        </defs>
-        <!-- wave path; bottom filled with gradient -->
-        <path d="M0,40 C120,70 180,10 300,35 C380,50 440,30 500,40 L500,80 L0,80 Z"
-              fill="url(#cardGradient)"/>
-      </svg>
     </div>
   </div>
 </body>
