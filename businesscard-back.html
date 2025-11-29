@@ -16,19 +16,18 @@
       padding: 0;
     }
 
-    /* White page background */
     body {
       min-height: 100vh;
       margin: 0;
       padding: 1rem;
       font-family: Arial, sans-serif;
-      background: #ffffff;
+      background: #ffffff; /* White page background */
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Card: same physical size as front */
+    /* 3.5 × 2 inch card */
     .card {
       width: 3.5in;
       height: 2in;
@@ -38,45 +37,42 @@
       color: #ffffff;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       box-shadow: 0 0.12in 0.25in rgba(0, 0, 0, 0.35);
-      position: relative;
       overflow: hidden;
     }
 
-    .top-block {
-      /* header + cats */
-    }
-
+    /* HEADER */
     .card-header {
       text-align: center;
-      margin-bottom: 0.05in;
+      margin-bottom: 0.06in;
     }
 
     .card-title {
       font-family: "Poppins", Arial, sans-serif;
-      font-size: 7.4pt;
+      font-size: 8.2pt; /* increased */
       font-weight: 700;
       letter-spacing: 0.02em;
-      margin-bottom: 0.01in;
+      margin-bottom: 0.015in;
     }
 
     .subtitle {
-      font-size: 5pt;
+      font-size: 5.4pt; /* increased */
       opacity: 0.9;
     }
 
-    /* Cat bubbles row */
+    /* CATS */
     .top-row {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 0.05in;
+      margin-bottom: 0.03in; /* reduced gap */
     }
 
     .cat-bubble {
       flex: 0 0 auto;
-      max-width: 0.55in;      /* smaller than before */
+      max-width: 0.52in; /* slightly smaller for spacing */
       aspect-ratio: 1 / 1;
       border-radius: 999px;
       background: #ffffff;
@@ -93,9 +89,8 @@
       object-fit: cover;
     }
 
-    /* Review panel at bottom */
+    /* REVIEWS */
     .review-panel {
-      margin-top: 0.06in;
       background: #ffffff;
       color: #222222;
       border-radius: 0.12in;
@@ -106,7 +101,7 @@
     }
 
     .review-heading {
-      font-size: 5.8pt;
+      font-size: 6pt;
       font-weight: 700;
       margin-bottom: 0.02in;
       color: #333333;
@@ -133,46 +128,41 @@
 
     .review-name {
       font-weight: 700;
-      font-size: 4.9pt;
+      font-size: 5pt;
       color: #555555;
     }
 
     @media print {
       body {
         background: #ffffff;
-        padding: 0;
-        margin: 0;
       }
       .card {
         box-shadow: none;
-        margin: 0;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="card">
-    <div class="top-block">
-      <div class="card-header">
-        <div class="card-title">Nicole's Cat Services</div>
-        <div class="subtitle">Your kitty’s home-away-from-home 🐾</div>
-      </div>
 
-      <!-- Cat image bubbles -->
-      <div class="top-row">
-        <div class="cat-bubble">
-          <img src="thunder.png" alt="Thunder the cat" />
-        </div>
-        <div class="cat-bubble">
-          <img src="coconut.png" alt="Coconut the cat" />
-        </div>
-        <div class="cat-bubble">
-          <img src="stan.png" alt="Stanley the cat" />
-        </div>
+    <div class="card-header">
+      <div class="card-title">Nicole's Cat Services</div>
+      <div class="subtitle">Your kitty’s home-away-from-home</div>
+    </div>
+
+    <div class="top-row">
+      <div class="cat-bubble">
+        <img src="thunder.png" alt="Thunder" />
+      </div>
+      <div class="cat-bubble">
+        <img src="coconut.png" alt="Coconut" />
+      </div>
+      <div class="cat-bubble">
+        <img src="stan.png" alt="Stanley" />
       </div>
     </div>
 
-    <!-- Compact review panel with 1 sentence per quote -->
     <div class="review-panel">
       <div class="review-heading">What cat parents say</div>
 
@@ -187,9 +177,10 @@
       </div>
 
       <div class="review-line">
-        It was wonderful to see my cat not just comfortable, but thriving in a new environment!!
+        It was wonderful to see my cat thriving in a new environment!!
         <span class="review-name">- Cindy L.</span>
       </div>
+
     </div>
   </div>
 </body>
