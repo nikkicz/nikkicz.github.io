@@ -16,25 +16,24 @@
       padding: 0;
     }
 
+    /* White page background now */
     body {
       min-height: 100vh;
       margin: 0;
       padding: 1rem;
       font-family: Arial, sans-serif;
-      /* full-page gradient */
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Same physical card size as front */
+    /* Same size as front; gradient only on card */
     .card {
       width: 3.5in;
       height: 2in;
       border-radius: 0.15in;
-      padding: 0.18in 0.22in;
-      /* card itself also uses gradient so edges match if trimmed */
+      padding: 0.16in 0.20in;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
       color: #ffffff;
       display: flex;
@@ -45,34 +44,36 @@
       overflow: hidden;
     }
 
-    .card-title {
-      font-family: "Poppins", Arial, sans-serif;
-      font-size: 9pt;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+    .card-header {
       text-align: center;
       margin-bottom: 0.06in;
+    }
+
+    .card-title {
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.015in;
     }
 
     .subtitle {
-      font-size: 6.2pt;
-      text-align: center;
+      font-size: 5.4pt;
       opacity: 0.9;
-      margin-bottom: 0.08in;
     }
 
-    /* layout: top = cat bubbles, bottom = review bubble */
+    /* Top row: smaller cat bubbles */
     .top-row {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       gap: 0.06in;
-      margin-bottom: 0.06in;
+      margin-bottom: 0.04in;
     }
 
     .cat-bubble {
-      flex: 1;
-      max-width: 0.85in;
+      flex: 0 0 auto;
+      max-width: 0.65in;       /* smaller than before */
       aspect-ratio: 1 / 1;
       border-radius: 999px;
       background: #ffffff;
@@ -80,7 +81,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      box-shadow: 0 0.06in 0.12in rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0.05in 0.10in rgba(0, 0, 0, 0.28);
     }
 
     .cat-bubble img {
@@ -89,47 +90,30 @@
       object-fit: cover;
     }
 
-    .cat-label-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.06in;
-      margin-top: 0.02in;
-      margin-bottom: 0.04in;
-      font-size: 5.1pt;
-      text-align: center;
-      opacity: 0.95;
-    }
-
-    .cat-label {
-      flex: 1;
-      max-width: 0.85in;
-    }
-
     /* Review bubble */
     .review-bubble {
-      flex: 1;
       background: #ffffff;
       color: #222222;
       border-radius: 0.13in;
-      padding: 0.08in 0.10in;
+      padding: 0.07in 0.09in;
       box-shadow: 0 0.06in 0.16in rgba(0, 0, 0, 0.25);
-      font-size: 5.5pt;
-      line-height: 1.3;
+      font-size: 5.2pt;
+      line-height: 1.25;
       display: flex;
       flex-direction: column;
-      gap: 0.05in;
+      gap: 0.04in;
     }
 
     .review-heading {
-      font-size: 6.5pt;
+      font-size: 6pt;
       font-weight: 700;
-      margin-bottom: 0.02in;
+      margin-bottom: 0.01in;
       color: #333333;
     }
 
     .review-quote {
       position: relative;
-      padding-left: 0.10in;
+      padding-left: 0.09in;
     }
 
     .review-quote::before {
@@ -137,13 +121,13 @@
       position: absolute;
       left: 0;
       top: -0.02in;
-      font-size: 10pt;
+      font-size: 9pt;
       color: #ff6b6b;
     }
 
     .review-name {
       font-weight: 700;
-      font-size: 5.3pt;
+      font-size: 5pt;
       margin-top: 0.01in;
       color: #555555;
     }
@@ -163,52 +147,39 @@
 </head>
 <body>
   <div class="card">
-    <div>
+    <div class="card-header">
       <div class="card-title">Nicole's Cat Services</div>
       <div class="subtitle">Your kitty’s home-away-from-home 🐾</div>
     </div>
 
-    <!-- Cat image bubbles -->
-    <div>
-      <div class="top-row">
-        <div class="cat-bubble">
-          <img src="thunder.png" alt="Thunder the cat" />
-        </div>
-        <div class="cat-bubble">
-          <img src="coconut.png" alt="Coconut the cat" />
-        </div>
-        <div class="cat-bubble">
-          <img src="stan.png" alt="Stanley the cat" />
-        </div>
+    <!-- Cat image bubbles (no visible names) -->
+    <div class="top-row">
+      <div class="cat-bubble">
+        <img src="thunder.png" alt="Thunder the cat" />
       </div>
-
-      <div class="cat-label-row">
-        <div class="cat-label">Thunder</div>
-        <div class="cat-label">Coconut</div>
-        <div class="cat-label">Stanley</div>
+      <div class="cat-bubble">
+        <img src="coconut.png" alt="Coconut the cat" />
+      </div>
+      <div class="cat-bubble">
+        <img src="stan.png" alt="Stanley the cat" />
       </div>
     </div>
 
-    <!-- Review bubble -->
+    <!-- Review bubble (shortened to fit card) -->
     <div class="review-bubble">
       <div class="review-heading">What cat parents say</div>
 
       <div class="review-quote">
-        Nicole did an amazing job with my anxious boy when she sat him for a
-        few days… We will definitely be booking with Nicole again!
+        Nicole did an amazing job with my anxious boy… She took excellent
+        care of him and we will definitely be booking with Nicole again!
         <div class="review-name">- Caroline V.</div>
       </div>
 
       <div class="review-quote">
-        Nicole is a FANTASTIC pet sitter. She’s conscientious, reliable,
-        and clearly loved by animals… Highly recommend!
-        <div class="review-name">- Fatemah A.</div>
-      </div>
-
-      <div class="review-quote">
-        Nicole was the most amazing person with our cat Neil… We were so
-        grateful to have found her.
-        <div class="review-name">- Tullyne T.</div>
+        Nicole took wonderful care of my cat during a two-week stay. She gave
+        detailed updates and it was wonderful to see my cat not just comfortable,
+        but thriving in a new environment!!
+        <div class="review-name">- Cindy L.</div>
       </div>
     </div>
   </div>
