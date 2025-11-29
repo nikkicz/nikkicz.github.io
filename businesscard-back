@@ -3,47 +3,214 @@
 <head>
   <meta charset="UTF-8" />
   <title>Business Card – Back</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: #eee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Business card size */
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+      /* full-page gradient */
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Same physical card size as front */
     .card {
       width: 3.5in;
       height: 2in;
       border-radius: 0.15in;
+      padding: 0.18in 0.22in;
+      /* card itself also uses gradient so edges match if trimmed */
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff6b6b 100%);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0.12in 0.25in rgba(0, 0, 0, 0.35);
+      position: relative;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      background: #000;
-      box-shadow: 0 0.12in 0.25in rgba(0,0,0,0.3);
     }
 
-    .photo {
-      width: 100%;
-      height: 100%;
+    .card-title {
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: center;
+      margin-bottom: 0.06in;
+    }
+
+    .subtitle {
+      font-size: 6.2pt;
+      text-align: center;
+      opacity: 0.9;
+      margin-bottom: 0.08in;
+    }
+
+    /* layout: top = cat bubbles, bottom = review bubble */
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.06in;
+      margin-bottom: 0.06in;
+    }
+
+    .cat-bubble {
+      flex: 1;
+      max-width: 0.85in;
+      aspect-ratio: 1 / 1;
+      border-radius: 999px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0.06in 0.12in rgba(0, 0, 0, 0.3);
+    }
+
+    .cat-bubble img {
+      width: 110%;
+      height: 110%;
       object-fit: cover;
     }
 
+    .cat-label-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.06in;
+      margin-top: 0.02in;
+      margin-bottom: 0.04in;
+      font-size: 5.1pt;
+      text-align: center;
+      opacity: 0.95;
+    }
+
+    .cat-label {
+      flex: 1;
+      max-width: 0.85in;
+    }
+
+    /* Review bubble */
+    .review-bubble {
+      flex: 1;
+      background: #ffffff;
+      color: #222222;
+      border-radius: 0.13in;
+      padding: 0.08in 0.10in;
+      box-shadow: 0 0.06in 0.16in rgba(0, 0, 0, 0.25);
+      font-size: 5.5pt;
+      line-height: 1.3;
+      display: flex;
+      flex-direction: column;
+      gap: 0.05in;
+    }
+
+    .review-heading {
+      font-size: 6.5pt;
+      font-weight: 700;
+      margin-bottom: 0.02in;
+      color: #333333;
+    }
+
+    .review-quote {
+      position: relative;
+      padding-left: 0.10in;
+    }
+
+    .review-quote::before {
+      content: "“";
+      position: absolute;
+      left: 0;
+      top: -0.02in;
+      font-size: 10pt;
+      color: #ff6b6b;
+    }
+
+    .review-name {
+      font-weight: 700;
+      font-size: 5.3pt;
+      margin-top: 0.01in;
+      color: #555555;
+    }
+
     @media print {
-      body { background: #fff; }
-      .card { box-shadow: none; margin: 0; }
+      body {
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+      }
+      .card {
+        box-shadow: none;
+        margin: 0;
+      }
     }
   </style>
 </head>
-
 <body>
   <div class="card">
-    <img src="PH1.jpg" class="photo" alt="Cat photo 1" />
-    <img src="PH2.jpg" class="photo" alt="Cat photo 2" />
-    <img src="PH3.jpg" class="photo" alt="Cat photo 3" />
+    <div>
+      <div class="card-title">Nicole's Cat Services</div>
+      <div class="subtitle">Your kitty’s home-away-from-home 🐾</div>
+    </div>
+
+    <!-- Cat image bubbles -->
+    <div>
+      <div class="top-row">
+        <div class="cat-bubble">
+          <img src="thunder.png" alt="Thunder the cat" />
+        </div>
+        <div class="cat-bubble">
+          <img src="coconut.png" alt="Coconut the cat" />
+        </div>
+        <div class="cat-bubble">
+          <img src="stan.png" alt="Stanley the cat" />
+        </div>
+      </div>
+
+      <div class="cat-label-row">
+        <div class="cat-label">Thunder</div>
+        <div class="cat-label">Coconut</div>
+        <div class="cat-label">Stanley</div>
+      </div>
+    </div>
+
+    <!-- Review bubble -->
+    <div class="review-bubble">
+      <div class="review-heading">What cat parents say</div>
+
+      <div class="review-quote">
+        Nicole did an amazing job with my anxious boy when she sat him for a
+        few days… We will definitely be booking with Nicole again!
+        <div class="review-name">- Caroline V.</div>
+      </div>
+
+      <div class="review-quote">
+        Nicole is a FANTASTIC pet sitter. She’s conscientious, reliable,
+        and clearly loved by animals… Highly recommend!
+        <div class="review-name">- Fatemah A.</div>
+      </div>
+
+      <div class="review-quote">
+        Nicole was the most amazing person with our cat Neil… We were so
+        grateful to have found her.
+        <div class="review-name">- Tullyne T.</div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
