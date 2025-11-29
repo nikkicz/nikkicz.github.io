@@ -35,53 +35,53 @@
       box-shadow: 0 0.12in 0.25in rgba(0, 0, 0, 0.3);
     }
 
-    /* header spans full width */
+    /* HEADER (full-width, centered) */
     .header {
       width: 100%;
       border-bottom: 1px solid rgba(255, 255, 255, 0.4);
       padding-bottom: 0.06in;
       margin-bottom: 0.04in;
+      text-align: center;
     }
 
-    .business-name {
-      font-size: 9.5pt;
+    .header-main {
+      font-size: 8.2pt;
       font-weight: 700;
-      line-height: 1.1;
+      line-height: 1.2;
     }
 
-    .person-name {
-      font-size: 8pt;
-      margin-top: 0.02in;
-    }
-
-    .tagline {
-      font-size: 7pt;
+    .header-links {
+      font-size: 6.6pt;
       margin-top: 0.03in;
     }
 
-    .location {
-      font-size: 7pt;
-      margin-top: 0.02in;
+    .tagline {
+      font-size: 6.8pt;
+      margin-top: 0.03in;
+    }
+
+    .emphasis-link {
+      color: #ffe082;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .header-separator {
       opacity: 0.9;
     }
 
-    .phone {
-      font-size: 7pt;
-      margin-top: 0.01in;
-      opacity: 0.95;
-    }
-
-    /* two-column body */
+    /* BODY: two columns */
     .body {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 0.08in;
       row-gap: 0.02in;
       flex: 1;
+      margin-top: 0.03in;
     }
 
     .section-title {
-      font-size: 7pt;
+      font-size: 6.8pt;
       font-weight: 700;
       margin-bottom: 0.02in;
     }
@@ -95,30 +95,28 @@
     .bullet-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.04in;
-      font-size: 6.6pt;
+      gap: 0.03in;
+      font-size: 6pt;
       line-height: 1.25;
       margin-bottom: 0.02in;
     }
 
     .bullet-dot {
-      width: 0.07in;
-      height: 0.07in;
+      width: 0.05in;
+      height: 0.05in;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.9);
-      margin-top: 0.03in;
+      margin-top: 0.025in;
       flex-shrink: 0;
     }
 
-    .footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.4);
-      padding-top: 0.04in;
+    .small-note {
+      font-size: 5.8pt;
       margin-top: 0.02in;
-      font-size: 6.6pt;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
-    .highlight {
+    .code-highlight {
       color: #ffe082;
       font-weight: 700;
     }
@@ -145,11 +143,26 @@
 <body>
   <div class="card">
     <header class="header">
-      <div class="business-name">Nicole's Cat Services</div>
-      <div class="person-name">Nicole Czachowski</div>
-      <div class="tagline">In-home boarding and drop-ins</div>
-      <div class="location">Lawrenceville • Pittsburgh, PA</div>
-      <div class="phone">Phone: 724-591-6883</div>
+      <div class="header-main">
+        Nicole Czachowski &#8226; Lawrenceville, Pittsburgh PA
+      </div>
+      <div class="header-links">
+        <span class="emphasis-link">724-591-6883</span>
+        <span class="header-separator"> &#8226; </span>
+        <a
+          href="https://www.rover.com/sit/nicolc86838"
+          class="emphasis-link"
+        >
+          rover.com/sit/nicolc86838
+        </a>
+        <span class="header-separator"> &#8226; </span>
+        <a href="https://nikkicz.github.io">
+          nikkicz.github.io
+        </a>
+      </div>
+      <div class="tagline">
+        Nicole's Cat Services &mdash; In-home boarding and drop-ins
+      </div>
     </header>
 
     <div class="body">
@@ -159,11 +172,26 @@
         <ul class="bullet-list">
           <li class="bullet-item">
             <span class="bullet-dot"></span>
-            <span>In-home boarding through Rover:<br />www.rover.com/sit/nicolc86838</span>
+            <span>
+              Boarding in my home through Rover:<br />
+              <a
+                href="https://www.rover.com/sit/nicolc86838"
+                class="emphasis-link"
+              >
+                rover.com/sit/nicolc86838
+              </a>
+              <div class="small-note">
+                First-time Rover users: $20 off with code
+                <span class="code-highlight">NICOLC86838</span>
+              </div>
+            </span>
           </li>
           <li class="bullet-item">
             <span class="bullet-dot"></span>
-            <span>Drop-ins through direct contact:<br />724-591-6883</span>
+            <span>
+              Drop-ins through direct contact:<br />
+              <span class="emphasis-link">724-591-6883</span>
+            </span>
           </li>
         </ul>
       </div>
@@ -191,10 +219,6 @@
         </ul>
       </div>
     </div>
-
-    <footer class="footer">
-      <div>First-time Rover users: $20 off with code <span class="highlight">NICOLC86838</span></div>
-    </footer>
   </div>
 </body>
 </html>
