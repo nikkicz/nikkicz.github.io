@@ -21,13 +21,13 @@
       margin: 0;
       padding: 1rem;
       font-family: Arial, sans-serif;
-      background: #ffffff; /* White page background */
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* 3.5 × 2 inch card */
+    /* Card layout */
     .card {
       width: 3.5in;
       height: 2in;
@@ -50,14 +50,14 @@
 
     .card-title {
       font-family: "Poppins", Arial, sans-serif;
-      font-size: 8.2pt; /* increased */
+      font-size: 8.2pt;
       font-weight: 700;
       letter-spacing: 0.02em;
-      margin-bottom: 0.015in;
+      margin-bottom: 0.02in;
     }
 
     .subtitle {
-      font-size: 5.4pt; /* increased */
+      font-size: 5.4pt;
       opacity: 0.9;
     }
 
@@ -67,12 +67,12 @@
       justify-content: center;
       align-items: center;
       gap: 0.05in;
-      margin-bottom: 0.05in; /* reduced gap */
+      margin-bottom: 0.06in;
     }
 
     .cat-bubble {
       flex: 0 0 auto;
-      max-width: 0.52in; /* slightly smaller for spacing */
+      max-width: 0.52in;
       aspect-ratio: 1 / 1;
       border-radius: 999px;
       background: #ffffff;
@@ -89,7 +89,7 @@
       object-fit: cover;
     }
 
-    /* REVIEWS */
+    /* REVIEWS PANEL */
     .review-panel {
       background: #ffffff;
       color: #222222;
@@ -98,6 +98,7 @@
       box-shadow: 0 0.05in 0.14in rgba(0, 0, 0, 0.25);
       font-size: 5pt;
       line-height: 1.25;
+      margin-bottom: 0.05in; /* make room for bottom contact strip */
     }
 
     .review-heading {
@@ -132,13 +133,27 @@
       color: #555555;
     }
 
+    /* NEW CONTACT STRIP */
+    .contact-strip {
+      text-align: center;
+      font-size: 5pt;
+      line-height: 1.2;
+      margin-top: auto;
+      color: #ffffff;
+    }
+
+    .contact-strip-title {
+      font-weight: 700;
+      margin-bottom: 0.015in;
+    }
+
+    .contact-strip-links {
+      opacity: 0.95;
+    }
+
     @media print {
-      body {
-        background: #ffffff;
-      }
-      .card {
-        box-shadow: none;
-      }
+      body { background: #ffffff; }
+      .card { box-shadow: none; }
     }
   </style>
 </head>
@@ -180,8 +195,16 @@
         It was wonderful to see my cat thriving in a new environment!!
         <span class="review-name">- Cindy L.</span>
       </div>
-
     </div>
+
+    <!-- NEW BOTTOM CONTACT SECTION -->
+    <div class="contact-strip">
+      <div class="contact-strip-title">Ready to book? Contact me today!</div>
+      <div class="contact-strip-links">
+        rover.com/sit/nicolc86838 • 724-591-6883 • nikkicz.github.io
+      </div>
+    </div>
+
   </div>
 </body>
 </html>
