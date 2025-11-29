@@ -42,26 +42,26 @@
       box-shadow: 0 0.12in 0.25in rgba(0, 0, 0, 0.3);
       position: relative;
       overflow: hidden;
-      padding-bottom: 0.35in;
+      padding-bottom: 0.35in; /* space above wave */
     }
 
-    /* Pusheen in top-right corner */
+    /* Pusheen in top-right corner — shifted a bit more right */
     .pusheen {
       position: absolute;
       top: 0.08in;
-      right: 0.10in;
+      right: 0.04in;  /* was 0.10in */
       width: 0.55in;
       height: auto;
     }
 
-    /* HEADER — updated for more right-side space */
+    /* HEADER */
     .header {
       width: 100%;
       border-bottom: 1px solid #cccccc;
       padding-bottom: 0.06in;
       margin-bottom: 0.04in;
-      text-align: left;     /* CHANGED from center → left */
-      padding-right: 0.15in;/* REDUCED from 0.6in */
+      text-align: left;
+      padding-right: 0.15in; /* lets text come close to Pusheen */
       padding-left: 0;
     }
 
@@ -108,16 +108,16 @@
       margin-bottom: 0.02in;
     }
 
-    /* bullet layout */
     .bullet-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
+    /* bullets: smaller dot, vertically centered next to multi-line text */
     .bullet-item {
       display: flex;
-      align-items: flex-start;
+      align-items: center;      /* center bullet vs whole text block */
       gap: 0.04in;
       font-size: 5.5pt;
       line-height: 1.2;
@@ -125,11 +125,10 @@
     }
 
     .bullet-dot {
-      width: 0.04in;
-      height: 0.04in;
+      width: 0.03in;            /* about half text line height */
+      height: 0.03in;
       border-radius: 999px;
       background: #764ba2;
-      margin-top: 0.035in;
       flex-shrink: 0;
     }
 
@@ -143,22 +142,22 @@
       text-decoration: none;
     }
 
-    /* GRADIENT WAVE — updated so it's flush at bottom */
+    /* GRADIENT WAVE — forced flush with bottom */
     .wave-wrapper {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: -0.02in;  /* tiny overhang to kill any white line */
       height: 0.4in;
       pointer-events: none;
-      overflow: hidden;   /* NEW */
-      line-height: 0;     /* NEW */
+      overflow: hidden;
+      line-height: 0;
     }
 
     .wave-svg {
       width: 100%;
-      height: 100%;       /* NEW */
-      display: block;     /* NEW */
+      height: 100%;
+      display: block;
     }
 
     @media print {
@@ -176,7 +175,9 @@
 </head>
 <body>
   <div class="card">
-    <img src="images/IMG_6369.png" alt="Pusheen" class="pusheen" />
+    <!-- Pusheen image in the corner -->
+    <!-- IMG_6369.png should live in the same folder as this HTML file -->
+    <img src="IMG_6369.png" alt="Pusheen" class="pusheen" />
 
     <!-- HEADER -->
     <header class="header">
@@ -203,6 +204,7 @@
 
     <!-- BODY -->
     <div class="body">
+      <!-- Services -->
       <div>
         <div class="section-title">Services</div>
         <ul class="bullet-list">
@@ -234,6 +236,7 @@
         </ul>
       </div>
 
+      <!-- Experience -->
       <div>
         <div class="section-title">Experience</div>
         <ul class="bullet-list">
