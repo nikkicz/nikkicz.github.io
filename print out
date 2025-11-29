@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicole's Cat Boarding - Print Flyer</title>
+  <title>Nicole's Cat Services - Print Flyer</title>
   <style>
     @media print {
       body { margin: 0; }
@@ -314,7 +314,7 @@
 <body>
   <div class="flyer">
     <div class="header">
-      <h1>Nicole's Cat Boarding 🐱</h1>
+      <h1>Nicole's Cat Services 🐱</h1>
       <p><em>Lawrenceville, Pittsburgh, PA • 5 Years Experience</em></p>
     </div>
 
@@ -409,8 +409,8 @@
 
     <div class="cta">
       <h2>Ready to Book? 🐾</h2>
-      <a href="https://www.rover.com/sit/nicolc86838" class="cta-button">Book Now & Save $20! 🎉</a>
-      <p class="cta-note"><em>Visit: rover.com/sit/nicolc86838 or use code NICOLC86838</em></p>
+      <a href="https://www.rover.com/sit/nicolc86838" class="cta-button">First time Rover user? Book now & save $20! 🎉</a>
+      <p class="cta-note"><em>Visit: rover.com/sit/nicolc86838 - First time Rover users use code NICOLC86838</em></p>
     </div>
 
     <div class="footer">
