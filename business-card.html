@@ -44,30 +44,30 @@
       text-align: center;
     }
 
-    .header-main {
-      font-size: 8.2pt;
+    .business-name {
+      font-size: 10pt;
       font-weight: 700;
       line-height: 1.2;
     }
 
-    .header-links {
+    .header-line2 {
+      font-size: 7pt;
+      margin-top: 0.03in;
+    }
+
+    .header-line3 {
       font-size: 6.6pt;
       margin-top: 0.03in;
     }
 
-    .tagline {
-      font-size: 6.8pt;
-      margin-top: 0.03in;
+    .header-separator {
+      opacity: 0.9;
     }
 
     .emphasis-link {
       color: #ffe082;
       text-decoration: underline;
       font-weight: 700;
-    }
-
-    .header-separator {
-      opacity: 0.9;
     }
 
     /* BODY: two columns */
@@ -110,15 +110,29 @@
       flex-shrink: 0;
     }
 
-    .small-note {
-      font-size: 5.8pt;
-      margin-top: 0.02in;
-      line-height: 1.2;
-    }
-
     .code-highlight {
       color: #ffe082;
       font-weight: 700;
+    }
+
+    /* tiny cat “clipart” row at bottom */
+    .cat-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.06in;
+      margin-top: 0.03in;
+    }
+
+    .cat-tile {
+      width: 0.28in;
+      height: 0.28in;
+      border-radius: 0.1in;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.16in;
     }
 
     a {
@@ -142,29 +156,28 @@
 </head>
 <body>
   <div class="card">
+    <!-- HEADER -->
     <header class="header">
-      <div class="header-main">
-        Nicole Czachowski &#8226; Lawrenceville, Pittsburgh PA
+      <div class="business-name">Nicole's Cat Services</div>
+      <div class="header-line2">
+        In-home boarding and drop-ins
+        <span class="header-separator"> • </span>
+        Lawrenceville, Pittsburgh, PA
       </div>
-      <div class="header-links">
+      <div class="header-line3">
         <span class="emphasis-link">724-591-6883</span>
-        <span class="header-separator"> &#8226; </span>
-        <a
-          href="https://www.rover.com/sit/nicolc86838"
-          class="emphasis-link"
-        >
+        <span class="header-separator"> • </span>
+        <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
           rover.com/sit/nicolc86838
         </a>
-        <span class="header-separator"> &#8226; </span>
-        <a href="https://nikkicz.github.io">
+        <span class="header-separator"> • </span>
+        <a href="https://nikkicz.github.io" class="emphasis-link">
           nikkicz.github.io
         </a>
       </div>
-      <div class="tagline">
-        Nicole's Cat Services &mdash; In-home boarding and drop-ins
-      </div>
     </header>
 
+    <!-- BODY -->
     <div class="body">
       <!-- Services -->
       <div>
@@ -173,17 +186,17 @@
           <li class="bullet-item">
             <span class="bullet-dot"></span>
             <span>
-              Boarding in my home through Rover:<br />
-              <a
-                href="https://www.rover.com/sit/nicolc86838"
-                class="emphasis-link"
-              >
+              In-home boarding through Rover:<br />
+              <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
                 rover.com/sit/nicolc86838
               </a>
-              <div class="small-note">
-                First-time Rover users: $20 off with code
-                <span class="code-highlight">NICOLC86838</span>
-              </div>
+            </span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-dot"></span>
+            <span>
+              First-time Rover users: $20 off with code
+              <span class="code-highlight">NICOLC86838</span>
             </span>
           </li>
           <li class="bullet-item">
@@ -210,7 +223,10 @@
           </li>
           <li class="bullet-item">
             <span class="bullet-dot"></span>
-            <span>Comfortable with medications (pills, liquid, insulin, sub-Q)</span>
+            <span>
+              Comfortable with medications (pills, liquid,
+              insulin injections, sub-Q injections, ointment)
+            </span>
           </li>
           <li class="bullet-item">
             <span class="bullet-dot"></span>
@@ -218,6 +234,13 @@
           </li>
         </ul>
       </div>
+    </div>
+
+    <!-- SMALL CAT CLIPART ROW -->
+    <div class="cat-row">
+      <div class="cat-tile">🐱</div>
+      <div class="cat-tile">😺</div>
+      <div class="cat-tile">😸</div>
     </div>
   </div>
 </body>
