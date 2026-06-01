@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Business Card – Front</title>
 
-  <!-- Cool font for heading -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"
     rel="stylesheet"
@@ -28,12 +27,11 @@
       justify-content: center;
     }
 
-    /* 3.5 in × 2 in business card */
     .card {
       width: 3.5in;
       height: 2in;
-      border-radius: 0.15in;
-      padding: 0.18in 0.22in;
+      border-radius: 0;
+      padding: 0.14in 0.18in 0.25in;
       background: #ffffff;
       color: #000000;
       display: flex;
@@ -42,44 +40,42 @@
       box-shadow: 0 0.12in 0.25in rgba(0, 0, 0, 0.3);
       position: relative;
       overflow: hidden;
-      padding-bottom: 0.35in; /* space above wave */
     }
 
-    /* Pusheen in top-right corner — shifted a bit more right */
     .pusheen {
       position: absolute;
-      top: 0.08in;
-      right: 0.04in;  /* was 0.10in */
-      width: 0.55in;
+      top: 0.06in;
+      right: 0.04in;
+      width: 0.48in;
       height: auto;
     }
 
-    /* HEADER */
     .header {
       width: 100%;
       border-bottom: 1px solid #cccccc;
-      padding-bottom: 0.06in;
+      padding-bottom: 0.04in;
       margin-bottom: 0.04in;
       text-align: left;
-      padding-right: 0.15in; /* lets text come close to Pusheen */
-      padding-left: 0;
+      padding-right: 0.45in;
     }
 
     .business-name {
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.1;
       font-family: "Poppins", Arial, sans-serif;
     }
 
     .header-line2 {
-      font-size: 7pt;
-      margin-top: 0.03in;
+      font-size: 6.4pt;
+      margin-top: 0.025in;
+      line-height: 1.15;
     }
 
     .header-line3 {
-      font-size: 6.6pt;
-      margin-top: 0.03in;
+      font-size: 6pt;
+      margin-top: 0.025in;
+      line-height: 1.15;
     }
 
     .header-separator {
@@ -92,20 +88,23 @@
       font-weight: 700;
     }
 
-    /* BODY: two columns */
     .body {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 0.08in;
-      row-gap: 0.02in;
+      grid-template-columns: 0.88fr 1.12fr;
+      column-gap: 0.07in;
       flex: 1;
-      margin-top: 0.03in;
+      margin-top: 0.02in;
+      padding-bottom: 0.08in;
     }
 
     .section-title {
-      font-size: 6.8pt;
+      font-size: 6.4pt;
       font-weight: 700;
       margin-bottom: 0.02in;
+    }
+
+    .contact-title {
+      margin-top: 0.07in;
     }
 
     .bullet-list {
@@ -114,27 +113,27 @@
       margin: 0;
     }
 
-    /* bullets: smaller dot, vertically centered next to multi-line text */
     .bullet-item {
       display: flex;
-      align-items: center;      /* center bullet vs whole text block */
-      gap: 0.04in;
-      font-size: 5.5pt;
-      line-height: 1.2;
-      margin-bottom: 0.03in;
+      align-items: flex-start;
+      gap: 0.035in;
+      font-size: 5pt;
+      line-height: 1.16;
+      margin-bottom: 0.028in;
     }
 
     .bullet-dot {
-      width: 0.03in;            /* about half text line height */
-      height: 0.03in;
+      width: 0.028in;
+      height: 0.028in;
+      margin-top: 0.018in;
       border-radius: 999px;
       background: #764ba2;
       flex-shrink: 0;
     }
 
-    .code-highlight {
-      color: #b8860b;
-      font-weight: 700;
+    .contact-text {
+      font-size: 5pt;
+      line-height: 1.18;
     }
 
     a {
@@ -142,13 +141,12 @@
       text-decoration: none;
     }
 
-    /* GRADIENT WAVE — forced flush with bottom */
     .wave-wrapper {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -0.02in;  /* tiny overhang to kill any white line */
-      height: 0.4in;
+      bottom: -0.02in;
+      height: 0.28in;
       pointer-events: none;
       overflow: hidden;
       line-height: 0;
@@ -166,6 +164,7 @@
         padding: 0;
         margin: 0;
       }
+
       .card {
         box-shadow: none;
         margin: 0;
@@ -173,88 +172,78 @@
     }
   </style>
 </head>
+
 <body>
   <div class="card">
-    <!-- Pusheen image in the corner -->
-    <!-- IMG_6369.png should live in the same folder as this HTML file -->
     <img src="images/IMG_6369.png" alt="Pusheen" class="pusheen" />
 
-  <!-- HEADER -->
-<header class="header">
-  <div class="business-name">Nicole's Cat Services</div>
+    <header class="header">
+      <div class="business-name">Nicole's Cat Services</div>
 
-  <div class="header-line2">
-    In-home boarding and drop-ins
-    <span class="header-separator"> • </span>
-    Lawrenceville, Pittsburgh, PA
-  </div>
+      <div class="header-line2">
+        In-home boarding and drop-ins
+        <span class="header-separator"> • </span>
+        Lawrenceville, Pittsburgh, PA
+      </div>
 
-  <div class="header-line3">
-    <span class="emphasis-link">724-591-6883</span>
+      <div class="header-line3">
+        <span class="emphasis-link">724-591-6883</span>
+        <span class="header-separator"> • </span>
 
-    <span class="header-separator"> • </span>
+        <a href="https://nikkicz.github.io" class="emphasis-link">
+          nikkicz.github.io
+        </a>
 
-    <a href="https://nikkicz.github.io" class="emphasis-link">
-      nikkicz.github.io
-    </a>
+        <span class="header-separator"> • </span>
 
-    <span class="header-separator"> • </span>
+        <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
+          Rover
+        </a>
+      </div>
+    </header>
 
-    <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
-      rover.com/sit/nicolc86838
-    </a>
-  </div>
-</header>
-
-    <!-- BODY -->
     <div class="body">
-    <!-- Services -->
-<div>
-  <div class="section-title">Services</div>
-  <ul class="bullet-list">
+      <!-- LEFT COLUMN -->
+      <div>
+        <div class="section-title">Services</div>
 
-    <li class="bullet-item">
-      <span class="bullet-dot"></span>
-      <span>Boarding in my home</span>
-    </li>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <span class="bullet-dot"></span>
+            <span>Boarding in my home</span>
+          </li>
 
-    <li class="bullet-item">
-      <span class="bullet-dot"></span>
-      <span>Drop-ins in your home</span>
-    </li>
+          <li class="bullet-item">
+            <span class="bullet-dot"></span>
+            <span>Drop-ins</span>
+          </li>
+        </ul>
 
-  </ul>
-</div>
+        <div class="section-title contact-title">Contact</div>
 
-      <!-- Contact -->
-<div>
-  <div class="section-title">Contact</div>
-  <div style="font-size: 5.5pt; line-height: 1.3;">
-    Contact me today via Rover or phone!
-  </div>
-</div>
+        <div class="contact-text">
+          Contact me today via Rover or phone number!
+        </div>
+      </div>
 
-      <!-- Environment and Experience -->
+      <!-- RIGHT COLUMN -->
       <div>
         <div class="section-title">Environment and Experience</div>
-        <ul class="bullet-list">
 
+        <ul class="bullet-list">
           <li class="bullet-item">
             <span class="bullet-dot"></span>
             <span>Dedicated cat boarding room, separated from 3 resident cats</span>
           </li>
 
-            <li class="bullet-item">
+          <li class="bullet-item">
             <span class="bullet-dot"></span>
             <span>5+ years of cat care</span>
           </li>
 
           <li class="bullet-item">
             <span class="bullet-dot"></span>
-            <span>
-              Comfortable administering medications (pills, liquid,
-              insulin injections, sub-Q injections, ointment)
-            </span>
+            <span>Comfortable administering medications</span>
           </li>
 
           <li class="bullet-item">
@@ -265,16 +254,16 @@
       </div>
     </div>
 
-    <!-- WAVE -->
     <div class="wave-wrapper">
       <svg class="wave-svg" viewBox="0 0 500 80" preserveAspectRatio="none">
         <defs>
           <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="#667eea" />
-            <stop offset="45%"  stop-color="#764ba2" />
+            <stop offset="0%" stop-color="#667eea" />
+            <stop offset="45%" stop-color="#764ba2" />
             <stop offset="100%" stop-color="#ff6b6b" />
           </linearGradient>
         </defs>
+
         <path
           d="M0,40 C120,70 180,10 300,35 C380,50 440,30 500,40 L500,80 L0,80 Z"
           fill="url(#cardGradient)"
