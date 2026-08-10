@@ -83,7 +83,6 @@
 
     .emphasis-link {
       color: #b8860b;
-      text-decoration: underline;
       font-weight: 700;
     }
 
@@ -121,14 +120,18 @@
       margin-bottom: 0.035in;
     }
 
-    .bullet-dot {
-      width: 0.032in;
-      height: 0.032in;
-      margin-top: 0.02in;
-      border-radius: 999px;
-      background: #764ba2;
-      flex-shrink: 0;
-    }
+.bullet-dot {
+    width: 4px;
+    height: 4px;
+    min-width: 4px;
+    min-height: 4px;
+    flex: 0 0 4px;
+
+    margin-top: 2px;
+
+    border-radius: 50%;
+    background: #764ba2;
+}
 
     .contact-text {
       font-size: 5.8pt;
@@ -169,6 +172,36 @@
         margin: 0;
       }
     }
+    .contact-item {
+  white-space: nowrap;
+}
+
+    /* =========================================================
+   BUSINESS CARD PDF EXPORT
+   Forces Chrome's printed PDF page to exactly 3.5" × 2".
+   ========================================================= */
+
+@page {
+    size: 3.5in 2in;
+    margin: 0;
+}
+
+@media print {
+    html,
+    body {
+        width: 3.5in;
+        height: 2in;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
   </style>
 </head>
 
@@ -185,25 +218,32 @@
         Lawrenceville, Pittsburgh, PA
       </div>
 
-      <div class="header-line3">
-        <span class="emphasis-link">724-591-6883</span>
-        <span class="header-separator"> • </span>
+    <div class="header-line3">
+  <span class="contact-item">
+    <span class="emphasis-link">724-591-6883</span>
+    <span class="header-separator"> • </span>
+  </span>
 
-        <a href="https://nikkicz.github.io" class="emphasis-link">
-          nikkicz.github.io
-        </a>
+  <span class="contact-item">
+    <a href="https://nikkicz.github.io" class="emphasis-link">
+      nikkicz.github.io
+    </a>
+    <span class="header-separator"> • </span>
+  </span>
 
-        <span class="header-separator"> • </span>
+  <span class="contact-item">
+    <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
+      rover.com/sit/nicolc86838
+    </a>
+    <span class="header-separator"> • </span>
+  </span>
 
-      <a href="https://www.rover.com/sit/nicolc86838" class="emphasis-link">
-  rover.com/sit/nicolc86838
-</a>
+  <span class="contact-item">
+    <a href="https://facebook.com/nicolescatservices" class="emphasis-link">
+      facebook.com/nicolescatservices
+    </a>
+  </span>
 
-     <span class="header-separator"> • </span>
-
-      <a href="https://facebook.com/nicolescatservices" class="emphasis-link">
-  facebook.com/nicolescatservices
-</a>
 
       </div>
     </header>
@@ -237,7 +277,7 @@
         <ul class="bullet-list">
           <li class="bullet-item">
             <span class="bullet-dot"></span>
-            <span>Dedicated cat boarding room, separated from 3 resident cats</span>
+            <span>Dedicated cat boarding room, separated from my resident cats</span>
           </li>
 
           <li class="bullet-item">

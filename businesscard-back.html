@@ -154,6 +154,32 @@
       body { background: #ffffff; }
       .card { box-shadow: none; }
     }
+
+    /* =========================================================
+   BUSINESS CARD PDF EXPORT
+   Forces Chrome's printed PDF page to exactly 3.5" × 2".
+   ========================================================= */
+
+@page {
+    size: 3.5in 2in;
+    margin: 0;
+}
+
+@media print {
+    html,
+    body {
+        width: 3.5in;
+        height: 2in;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
   </style>
 </head>
 
@@ -162,7 +188,6 @@
 
     <div class="card-header">
       <div class="card-title">Nicole's Cat Services</div>
-      <div class="subtitle">Your kitty’s home-away-from-home</div>
     </div>
 
     <div class="top-row">
@@ -201,10 +226,10 @@
   <div class="contact-strip-title">Ready to book? Contact me today!</div>
 
  <div class="contact-strip-links">
-  724-591-6883 •
-  <span style="text-decoration: underline;">nikkicz.github.io</span> •
-  <span style="text-decoration: underline;">rover.com/sit/nicolc86838</span> •
-    <span style="text-decoration: underline;">facebook.com/nicolescatservices</span>
+  724-591-6683 •
+  nikkicz.github.io •
+  rover.com/sit/nicolc86838 •
+    facebook.com/nicolescatservices
 
 </div>
 </div>
